@@ -1,29 +1,34 @@
 /**
- * Union operator | allows us to specify more than one possible
- * data type
+ * Specifying return value type
  *
- * When specifying multiple types, you may need extra logic
- * in the function to address both types
+ * With a function, Typescript will implciitly determine what
+ * data type your function will return
+ *
+ * Exception: Void
+ * - Means that the function has no return value
+ * - Don't use undefined, TS expects that to mean you
+ * are returning something, with a value of undefined
  */
-const combine = (
-  input1: number | string,
-  input2: number | string,
-  resultType: 'as-number' | 'as-text' // Must be one of these two specific values
-) => {
-  let result
-  if (
-    (typeof input1 === 'number' && typeof input2 === 'number') ||
-    resultType === 'as-number'
-  ) {
-    result = +input1 + +input2
-  } else {
-    result = input1.toString() + input2.toString()
-  }
-  return result
+
+const add = (n1: number, n2: number) => {
+  return n1 + n2
 }
 
-const combinedAges = combine(20, 30, 'as-number')
-console.log(combinedAges)
+const printResult = (num: number): void => {
+  console.log('Result: ' + num)
+}
 
-const combinedNames = combine('Danny', 'S', 'as-text')
-console.log(combinedNames)
+const addAndHandle = (n1: number, n2: number, cb: (b: number) => void) => {
+  const result = n1 + n2
+  cb(result)
+}
+// printResult(add(5, 12))
+
+// There is a type for a function, and we can specify the
+// number of parameters that assigned function would take
+// Useful when saving a function in another name
+
+let combineValues: (a: number, b: number) => number
+combineValues = add
+
+console.log(addAndHandle(9, 12, printResult))
