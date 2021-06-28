@@ -65,3 +65,19 @@ user1 = new Person()
 // user1.name = 'banana'
 
 console.log(user1)
+
+/**
+ * If we do not know the names of the keys, we could use index types
+ *
+ *
+ */
+
+// This says that the keys will be strings, and will have values that are strings
+interface ErrorContainer {
+  [prop: string]: string
+}
+
+const errorBag: ErrorContainer = {
+  email: 'Not a valid email',
+  username: 'Username already taken',
+}
