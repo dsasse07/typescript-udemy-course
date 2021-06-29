@@ -1,12 +1,6 @@
-/// <reference path="models/drag-drop.ts" />
-/// <reference path="models/project.ts" />
-/// <reference path="state/project-state.ts" />
-/// <reference path="util/validation.ts" />
-/// <reference path="decorators/autobind.ts" />
-/// <reference path="components/base-component.ts" />
-/// <reference path="components/project-input.ts" />
-/// <reference path="components/project-item.ts" />
-/// <reference path="components/project-list.ts" />
+import { ProjectInput } from './components/project-input.js'
+import { ProjectList } from './components/project-list.js'
+
 /**
  * Namespace reference above must start with '///'
  * If we then duplicate the namespace here, the code can
@@ -20,16 +14,19 @@
  *
  * This will cause all files of the same namespace to be
  * compiled together
+ *
+ * NAMESPACE REFERENCING DOESNT CATCH MISSING IMPORTS
+ * -> use ES6 modules
+ * -> change 'modules' to 'es2015'
+ * -> remove 'outFile'
+ * -> add type='module' to script tag in index.html
  */
 
-namespace App {
-  /**
-   * Object Oriented Approach (optional)
-   * Rendering HTML template tags
-   * into the <div id="app"></div>
-   */
-
-  new ProjectInput()
-  new ProjectList('active')
-  new ProjectList('finished')
-}
+/**
+ * Object Oriented Approach (optional)
+ * Rendering HTML template tags
+ * into the <div id="app"></div>
+ */
+new ProjectInput()
+new ProjectList('active')
+new ProjectList('finished')
