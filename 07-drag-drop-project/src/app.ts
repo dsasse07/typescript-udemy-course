@@ -1,5 +1,5 @@
-import { ProjectInput } from './components/project-input.js'
-import { ProjectList } from './components/project-list.js'
+import { ProjectInput } from './components/project-input'
+import { ProjectList } from './components/project-list'
 
 /**
  * Namespace reference above must start with '///'
@@ -27,6 +27,7 @@ import { ProjectList } from './components/project-list.js'
  * Rendering HTML template tags
  * into the <div id="app"></div>
  */
+console.log('bye now')
 new ProjectInput()
 new ProjectList('active')
 new ProjectList('finished')
