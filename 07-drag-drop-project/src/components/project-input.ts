@@ -1,7 +1,7 @@
 import { Component } from './base-component.js'
 import { AutoBindPrj1 } from '../decorators/autobind.js'
 import { projectState } from '../state/project-state.js'
-import { Validatable, validatePrj1 } from '../util/validation.js'
+import * as Validate from '../util/validation.js'
 
 /**
  *
@@ -47,16 +47,16 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     const description = this.descriptionInputElement.value
     const people = this.peopleInputElement.value
 
-    const titleValidate: Validatable = {
+    const titleValidate: Validate.Validatable = {
       value: title,
       required: true,
     }
-    const descriptionValidate: Validatable = {
+    const descriptionValidate: Validate.Validatable = {
       value: description,
       required: true,
       minLength: 5,
     }
-    const peopleValidate: Validatable = {
+    const peopleValidate: Validate.Validatable = {
       value: +people,
       required: true,
       min: 1,
@@ -64,9 +64,9 @@ export class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     }
     // Validate values using decorator!
     if (
-      !validatePrj1(titleValidate) ||
-      !validatePrj1(descriptionValidate) ||
-      !validatePrj1(peopleValidate)
+      !Validate.validatePrj1(titleValidate) ||
+      !Validate.validatePrj1(descriptionValidate) ||
+      !Validate.validatePrj1(peopleValidate)
     ) {
       alert('Invalid Input, please try again!')
       return
