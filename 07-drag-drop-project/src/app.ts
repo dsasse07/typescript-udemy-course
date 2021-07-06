@@ -27,7 +27,7 @@ import { ProjectList } from './components/project-list'
  * Rendering HTML template tags
  * into the <div id="app"></div>
  */
-console.log('bye now')
+
 new ProjectInput()
 new ProjectList('active')
 new ProjectList('finished')
